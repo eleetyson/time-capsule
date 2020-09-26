@@ -1,1 +1,1 @@
-Email your future self --> [https://future-me.herokuapp.com]
+Email your future self --> https://future-me.herokuapp.com
