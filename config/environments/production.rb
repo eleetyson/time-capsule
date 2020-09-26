@@ -110,8 +110,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.action_mailer.delivery_method = :smtp
-  host = 'https://future-me.herokuapp.com'
-  config.action_mailer.default_url_options = { host: host}
+  config.action_mailer.default_url_options = { :host => 'https://future-me.herokuapp.com' }
 
   config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
