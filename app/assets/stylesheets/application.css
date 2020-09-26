@@ -1,0 +1,83 @@
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-image: url(background.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-areas:
+      ". . ."
+      ". form ."
+      ". . .";
+  }
+
+  .form {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    }
+
+  input,
+  textarea {
+    width: 300px;
+    resize: none;
+    font-size: 12px;
+    padding: 10px 20px;
+    margin: 4px 0;
+  }
+
+  p {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  input[type=text] {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  textarea {
+    height: 200px;
+    line-height: 1.3rem;
+  }
+
+  input[type=submit] {
+    cursor: pointer;
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    border: none;
+    font-weight: 700;
+    transition: all 200ms ease-in-out;
+  }
+
+  input[type=submit]:hover {
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    transform: scale(1.025,1.025);
+  }
+
+  input[type=submit]:focus {
+    outline: none;
+    box-shadow: none;
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 50%);
+    opacity: 75%;
+  }
+
+  input[type=submit]:after {
+    cursor: pointer;
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    border: none;
+  }

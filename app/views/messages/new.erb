@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="form">
+      <h1>write to future you</h1><br>
+      <%= form_with model: @message, url: '/messages' do |f| %>
+        <%= f.label "Message" %><br>
+        <%= f.text_area :content, placeholder: "Future John - \n\nI hope you invested in WUPHF...", required: true %><br><br>
+
+        <%= f.label "Email" %><br>
+        <%= f.text_field :email_address,  placeholder: "johnlegend@mac.com", required: true, autocomplete: "off" %><br><br>
+
+        <%= f.label "Delivery" %><br>
+        <%= f.datetime_field :delivery_time, required: true %><br><br>
+
+        <%= f.submit "SEND IT", data: {confirm: "Are you sure you want to schedule this message?"} %>
+
+      <% end %>
+      <p><%= flash[:notice] %></p>
+    </div>
+</div>
