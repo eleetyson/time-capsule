@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
-      if @message.delivery_time.utc > DateTime.now.to_s[0..-6].to_datetime.utc
+      if Message.last.delivery_time.utc > DateTime.now.to_s[0..-6].to_datetime.utc
         UserMailer.scheduled_email(@message).deliver_later(wait_until: @message.delivery_time)
         flash[:notice] = "Your message was scheduled :)"
       else
