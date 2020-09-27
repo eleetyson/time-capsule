@@ -9,7 +9,7 @@
         <%= f.text_field :email_address,  placeholder: "johnlegend@mac.com", required: true, autocomplete: "off" %><br><br>
 
         <%= f.label "Delivery" %><br>
-        <%= f.datetime_field :delivery_time, required: true %><br><br>
+        <%= f.datetime_local_field :delivery_time, required: true %><br><br>
 
         <%= f.submit "SEND IT", data: {confirm: "Are you sure you want to schedule this message?"} %>
 
