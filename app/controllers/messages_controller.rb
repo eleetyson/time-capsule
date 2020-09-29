@@ -4,16 +4,14 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
+    @message = Message.new
+    @message.content = params[:message][:content]
+    @message.email_address = params[:message][:email_address]
 
     if @message.save
-      binding.pry
-      if @message.delivery_time.utc > DateTime.now.strftime("%a, %e %b %Y %H:%M:%S %z").slice(0..-7).to_datetime.utc
-        UserMailer.scheduled_email(@message).deliver_later(wait_until: @message.delivery_time)
-        flash[:notice] = "Your message was scheduled :)"
-      else
-        flash[:notice] = "invalid delivery time, can't schedule :("
-      end
+      min = params[:message][:delivery_time].to_i
+      UserMailer.scheduled_email(@message).deliver_later(wait: min.minutes.from_now)
+      flash[:notice] = "Your message was scheduled :)"
     else
       flash[:notice] = "Unable to schedule message :("
     end

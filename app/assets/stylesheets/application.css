@@ -33,7 +33,8 @@
     }
 
   input,
-  textarea {
+  textarea,
+  select {
     width: 300px;
     resize: none;
     font-size: 12px;

@@ -8,8 +8,8 @@
         <%= f.label "Email" %><br>
         <%= f.text_field :email_address,  placeholder: "johnlegend@mac.com", required: true, autocomplete: "off" %><br><br>
 
-        <%= f.label "Delivery" %><br>
-        <%= f.datetime_field :delivery_time, required: true %><br><br>
+        <%= f.label "Deliver in..." %><br>
+        <%= f.select :delivery_time, options_for_select({"2 Minutes" => 2, "2 Hours" => 120, "2 Days" => 2880}) ,required: true %><br><br>
 
         <%= f.submit "SEND IT", data: {confirm: "Are you sure you want to schedule this message?"} %>
 
