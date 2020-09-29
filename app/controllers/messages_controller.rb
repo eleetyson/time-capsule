@@ -7,10 +7,10 @@ class MessagesController < ApplicationController
     @message = Message.new
     @message.content = params[:message][:content]
     @message.email_address = params[:message][:email_address]
-    binding.pry
+    
     if @message.save
       min = params[:message][:delivery_time].to_i
-      UserMailer.scheduled_email(@message).deliver_later(wait: min.minutes.from_now)
+      UserMailer.scheduled_email(@message).deliver_later(wait: min.minutes)
       flash[:notice] = "Your message was scheduled :)"
     else
       flash[:notice] = "Unable to schedule message :("
