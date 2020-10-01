@@ -113,7 +113,6 @@ Rails.application.configure do
   config.action_mailer.default_options = {from: 'noreply.timecapsule@gmail.com'}
   config.action_mailer.default_url_options = {host: 'https://future-me.herokuapp.com'}
 
-
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
